@@ -47,11 +47,11 @@ class openntp (
     true    => absent,
     default => present,
   }
-  $manage_service_ensure = $openntp::bool_disable ? {
+  $manage_service_ensure = $bool_disable ? {
     true    => stopped,
     default => running,
   }
-  $manage_service_enable = $openntp::bool_disable ? {
+  $manage_service_enable = $bool_disable ? {
     true    => false,
     default => true,
   }
