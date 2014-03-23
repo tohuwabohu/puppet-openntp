@@ -33,6 +33,7 @@ class openntp (
   $disable = params_lookup('disable'),
   $listen = params_lookup('listen'),
   $server = params_lookup('server'),
+  $config = params_lookup('config'),
   $template = params_lookup('template')
 ) inherits openntp::params {
 
@@ -55,7 +56,6 @@ class openntp (
 
   package { 'openntpd': ensure => $ensure }
 
-  $config = '/etc/openntpd/ntpd.conf'
   if $ensure != absent {
     if empty($template) {
       concat { $config:
