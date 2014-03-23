@@ -41,7 +41,10 @@ class openntp (
 
   $bool_disable = any2bool($disable)
   validate_array($server)
+  validate_string($package)
+  validate_string($config)
   validate_string($template)
+  validate_string($service)
 
   $ensure_listen = empty($listen) ? {
     true    => absent,
