@@ -1,0 +1,22 @@
+{
+  "name": "tohuwabohu-openntp",
+  "version": "1.0.0",
+  "summary": "Puppet module for OpenNTPD",
+  "author": "Martin Meinhold",
+  "description": "This module installs and manages OpenNTPD.",
+  "dependencies": [
+    {
+      "name": "puppetlabs/stdlib",
+      "version_requirement": "4.x"
+    },
+    {
+      "name": "example42/puppi",
+      "version_requirement": "2.x"
+    }
+  ],
+  "types": [],
+  "checksums": {},
+  "source": "https://github.com/tohuwabohu/tohuwabohu-openntp.git",
+  "project_page": "https://github.com/tohuwabohu/tohuwabohu-openntp",
+  "license": "Apache License, Version 2.0"
+}

@@ -1,0 +1,11 @@
+# This file is managed by Puppet
+#
+
+# Addresses to listen on (ntpd does not listen by default)
+#listen on *
+#listen on 127.0.0.1
+#listen on ::1
+
+<% @server.each do |entry| -%>
+server <%= entry %>
+<% end -%>
