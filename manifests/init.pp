@@ -69,14 +69,14 @@ class openntp (
         require => Package[$package],
         notify  => Service[$service],
       }
-  
+
       concat::fragment { 'openntp_listen':
         ensure  => $ensure_listen,
         target  => $config,
         content => "listen on ${listen}\n",
         order   => 10,
       }
-  
+
       concat::fragment { 'openntp_server':
         target  => $config,
         content => template('openntp/server.erb'),
