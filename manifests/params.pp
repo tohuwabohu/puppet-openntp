@@ -12,7 +12,7 @@
 #
 class openntp::params {
   $ensure = installed
-  $template = undef
+  $disable = false
 
   $listen = undef
   $server = ['0.debian.pool.ntp.org', '1.debian.pool.ntp.org', '2.debian.pool.ntp.org', '3.debian.pool.ntp.org']
@@ -23,6 +23,7 @@ class openntp::params {
   $config = $::operatingsystem ? {
     default => '/etc/openntpd/ntpd.conf'
   }
+  $template = undef
   $service = $::operatingsystem ? {
     default => 'openntpd'
   }
