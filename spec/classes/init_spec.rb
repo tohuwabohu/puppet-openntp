@@ -12,9 +12,17 @@ describe 'openntp' do
     end
 
     describe 'with custom version' do
-      let(:params) { {:ensure => '1.0.0' } }
-    
+      let(:params) { {:ensure => '1.0.0'} }
+
         it { should contain_package('openntpd').with_ensure('1.0.0') }
+    end
+
+    describe 'with ensure absent' do
+      let(:params) { {:ensure => 'absent'} }
+
+      it { should contain_package('openntpd').with_ensure('absent') }
+      it { should_not contain_file('/etc/openntpd/ntpd.conf') }
+      it { should_not contain_service('openntpd') }
     end
 
     describe 'disable service' do

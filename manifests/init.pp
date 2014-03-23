@@ -47,19 +47,21 @@ class openntp (
 
   package { 'openntpd': ensure => $ensure }
 
-  file { '/etc/openntpd/ntpd.conf':
-    ensure  => 'present',
-    content => template($openntp::template),
-    owner   => root,
-    group   => root,
-    mode    => '0644',
-    require => Package['openntpd'],
-    notify  => Service['openntpd'],
-  }
+  if $ensure != absent {
+    file { '/etc/openntpd/ntpd.conf':
+      ensure  => 'present',
+      content => template($openntp::template),
+      owner   => root,
+      group   => root,
+      mode    => '0644',
+      require => Package['openntpd'],
+      notify  => Service['openntpd'],
+    }
 
-  service { 'openntpd':
-    ensure  => $manage_service_ensure,
-    enable  => $manage_service_enable,
-    require => Package['openntpd'],
+    service { 'openntpd':
+      ensure  => $manage_service_ensure,
+      enable  => $manage_service_enable,
+      require => Package['openntpd'],
+    }
   }
 }
