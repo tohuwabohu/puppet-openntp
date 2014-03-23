@@ -23,4 +23,7 @@ class openntp::params {
   $config = $::operatingsystem ? {
     default => '/etc/openntpd/ntpd.conf'
   }
+  $service = $::operatingsystem ? {
+    default => 'openntpd'
+  }
 }

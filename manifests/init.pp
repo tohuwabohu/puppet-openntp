@@ -34,6 +34,7 @@ class openntp (
   $server = params_lookup('server'),
   $package = params_lookup('package'),
   $disable = params_lookup('disable'),
+  $service = params_lookup('service'),
   $config = params_lookup('config'),
   $template = params_lookup('template')
 ) inherits openntp::params {
@@ -65,8 +66,8 @@ class openntp (
         mode    => '0644',
         force   => true,
         warn    => '# This file is managed by Puppet\n#\n',
-        require => Package['openntpd'],
-        notify  => Service['openntpd'],
+        require => Package[$package],
+        notify  => Service[$service],
       }
   
       concat::fragment { 'openntp_listen':
@@ -91,10 +92,10 @@ class openntp (
       }
     }
 
-    service { 'openntpd':
+    service { $service:
       ensure  => $manage_service_ensure,
       enable  => $manage_service_enable,
-      require => Package['openntpd'],
+      require => Package[$package],
     }
   }
 }
