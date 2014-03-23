@@ -10,6 +10,10 @@
 # [*disable*]
 #   Set to 'true' to disable service(s) managed by module
 #
+# [*listen*]
+#   Addresses to listen on (ntpd does not listen by default)
+#   Examples: nil, *, 127.0.0.1, ::1
+#
 # [*server*]
 #   An array of time servers to be used.
 #
@@ -27,6 +31,7 @@
 class openntp (
   $ensure = params_lookup('ensure'),
   $disable = params_lookup('disable'),
+  $listen = params_lookup('listen'),
   $server = params_lookup('server'),
   $template = params_lookup('template')
 ) inherits openntp::params {
@@ -35,11 +40,14 @@ class openntp (
   validate_array($server)
   validate_string($template)
 
+  $ensure_listen = empty($listen) ? {
+    true    => absent,
+    default => present,
+  }
   $manage_service_ensure = $openntp::bool_disable ? {
     true    => 'stopped',
     default => 'running',
   }
-
   $manage_service_enable = $openntp::bool_disable ? {
     true    => false,
     default => true,
@@ -47,15 +55,39 @@ class openntp (
 
   package { 'openntpd': ensure => $ensure }
 
+  $config = '/etc/openntpd/ntpd.conf'
   if $ensure != absent {
-    file { '/etc/openntpd/ntpd.conf':
-      ensure  => 'present',
-      content => template($openntp::template),
-      owner   => root,
-      group   => root,
-      mode    => '0644',
-      require => Package['openntpd'],
-      notify  => Service['openntpd'],
+    if empty($template) {
+      concat { $config:
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0644',
+        force   => true,
+        warn    => '# This file is managed by Puppet\n#\n',
+        require => Package['openntpd'],
+        notify  => Service['openntpd'],
+      }
+  
+      concat::fragment { 'openntp_listen':
+        ensure  => $ensure_listen,
+        target  => $config,
+        content => "listen on ${listen}\n",
+        order   => 10,
+      }
+  
+      concat::fragment { 'openntp_server':
+        target  => $config,
+        content => template('openntp/server.erb'),
+        order   => 15,
+      }
+    } else {
+      file { $config:
+        ensure  => present,
+        content => template($template),
+        owner   => 'root',
+        group   => 'root',
+        mode    => '0644',
+      }
     }
 
     service { 'openntpd':
