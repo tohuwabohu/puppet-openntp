@@ -50,6 +50,10 @@ class openntp (
     true    => absent,
     default => present,
   }
+  $ensure_config = $ensure ? {
+    absent  => absent,
+    default => present,
+  }
   $manage_service_ensure = $bool_disable ? {
     true    => stopped,
     default => running,
@@ -59,42 +63,10 @@ class openntp (
     default => true,
   }
 
-  class { 'openntp::install': }
+  class { 'openntp::install': } ->
+  class { 'openntp::config': }
 
   if $ensure != absent {
-    if empty($template) {
-      concat { $config:
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0644',
-        force   => true,
-        warn    => '# This file is managed by Puppet\n#\n',
-        require => Package[$package],
-        notify  => Service[$service],
-      }
-
-      concat::fragment { 'openntp_listen':
-        ensure  => $ensure_listen,
-        target  => $config,
-        content => "listen on ${listen}\n",
-        order   => 10,
-      }
-
-      concat::fragment { 'openntp_server':
-        target  => $config,
-        content => template('openntp/server.erb'),
-        order   => 15,
-      }
-    } else {
-      file { $config:
-        ensure  => present,
-        content => template($template),
-        owner   => 'root',
-        group   => 'root',
-        mode    => '0644',
-      }
-    }
-
     service { $service:
       ensure  => $manage_service_ensure,
       enable  => $manage_service_enable,
