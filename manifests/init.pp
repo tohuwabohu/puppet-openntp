@@ -7,8 +7,8 @@
 # [*ensure*]
 #   What state the package should be in. Passed through to package resource.
 #
-# [*disable*]
-#   Set to 'true' to disable service(s) managed by module
+# [*enable*]
+#   Set to 'false' to disable service(s) managed by module
 #
 # [*listen*]
 #   Addresses to listen on (ntpd does not listen by default)
@@ -30,7 +30,7 @@
 #
 class openntp (
   $ensure = params_lookup('ensure'),
-  $disable = params_lookup('disable'),
+  $enable = params_lookup('enable'),
   $listen = params_lookup('listen'),
   $server = params_lookup('server'),
   $package_name = params_lookup('package_name'),
@@ -40,7 +40,7 @@ class openntp (
 ) inherits openntp::params {
 
   validate_string($ensure)
-  $bool_disable = any2bool($disable)
+  validate_bool($enable)
   validate_array($server)
   validate_string($package_name)
   validate_string($config)
@@ -54,14 +54,6 @@ class openntp (
   $ensure_config = $ensure ? {
     absent  => absent,
     default => present,
-  }
-  $manage_service_ensure = $bool_disable ? {
-    true    => stopped,
-    default => running,
-  }
-  $manage_service_enable = $bool_disable ? {
-    true    => false,
-    default => true,
   }
 
   class { 'openntp::install': } ->

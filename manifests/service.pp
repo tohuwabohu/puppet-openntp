@@ -12,10 +12,19 @@
 #
 class openntp::service inherits openntp {
 
+  $ensure_service = $openntp::enable ? {
+    true    => running,
+    default => stopped,
+  }
+  $enable_service = $openntp::enable ? {
+    true    => true,
+    default => false,
+  }
+
   if $openntp::ensure != absent {
     service { $openntp::service:
-      ensure  => $openntp::manage_service_ensure,
-      enable  => $openntp::manage_service_enable,
+      ensure  => $ensure_service,
+      enable  => $enable_service,
     }
   }
 

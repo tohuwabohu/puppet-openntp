@@ -67,7 +67,7 @@ describe 'openntp' do
   end
 
   describe 'disable service' do
-    let(:params) { {:disable => true } }
+    let(:params) { {:enable => false} }
 
     it { should contain_concat('/etc/openntpd/ntpd.conf') }
     it { should contain_package('openntpd').with_ensure('installed') }
