@@ -54,7 +54,6 @@ class openntp (
   validate_array($server)
   validate_string($package_name)
   validate_absolute_path($config_file)
-  validate_string($template)
   validate_string($service_name)
 
   class { 'openntp::install': } ->
