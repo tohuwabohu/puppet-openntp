@@ -47,15 +47,6 @@ class openntp (
   validate_string($template)
   validate_string($service_name)
 
-  $ensure_listen = empty($listen) ? {
-    true    => absent,
-    default => present,
-  }
-  $ensure_config = $ensure ? {
-    absent  => absent,
-    default => present,
-  }
-
   class { 'openntp::install': } ->
   class { 'openntp::config': } ~>
   class { 'openntp::service': }

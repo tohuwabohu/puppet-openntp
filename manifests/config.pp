@@ -12,7 +12,16 @@
 #
 class openntp::config inherits openntp {
 
-  if $openntp::ensure_config != absent {
+  $ensure_listen = empty($openntp::listen) ? {
+    true    => absent,
+    default => present,
+  }
+  $ensure_config = $openntp::ensure ? {
+    absent  => absent,
+    default => present,
+  }
+
+  if $ensure_config != absent {
     if empty($openntp::template) {
       concat { $openntp::config_name:
         owner   => 'root',
@@ -23,7 +32,7 @@ class openntp::config inherits openntp {
       }
 
       concat::fragment { 'openntp_listen':
-        ensure  => $openntp::ensure_listen,
+        ensure  => $ensure_listen,
         target  => $openntp::config_name,
         content => "listen on ${openntp::listen}\n",
         order   => 10,
@@ -36,7 +45,7 @@ class openntp::config inherits openntp {
       }
     } else {
       file { $openntp::config_name:
-        ensure  => $openntp::ensure_config,
+        ensure  => $ensure_config,
         content => template($openntp::template),
         owner   => 'root',
         group   => 'root',
