@@ -12,8 +12,8 @@
 #
 class openntp::install inherits openntp {
 
-  package { $package:
-    ensure => $ensure,
+  package { $openntp::package:
+    ensure => $openntp::ensure,
   }
 
 }

@@ -12,9 +12,9 @@
 #
 class openntp::config inherits openntp {
 
-  if $ensure_config != absent {
-    if empty($template) {
-      concat { $config:
+  if $openntp::ensure_config != absent {
+    if empty($openntp::template) {
+      concat { $openntp::config:
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
@@ -23,21 +23,21 @@ class openntp::config inherits openntp {
       }
 
       concat::fragment { 'openntp_listen':
-        ensure  => $ensure_listen,
-        target  => $config,
-        content => "listen on ${listen}\n",
+        ensure  => $openntp::ensure_listen,
+        target  => $openntp::config,
+        content => "listen on ${openntp::listen}\n",
         order   => 10,
       }
 
       concat::fragment { 'openntp_server':
-        target  => $config,
+        target  => $openntp::config,
         content => template('openntp/server.erb'),
         order   => 15,
       }
     } else {
-      file { $config:
-        ensure  => $ensure_config,
-        content => template($template),
+      file { $openntp::config:
+        ensure  => $openntp::ensure_config,
+        content => template($openntp::template),
         owner   => 'root',
         group   => 'root',
         mode    => '0644',
