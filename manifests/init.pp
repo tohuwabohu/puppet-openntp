@@ -64,13 +64,7 @@ class openntp (
   }
 
   class { 'openntp::install': } ->
-  class { 'openntp::config': }
+  class { 'openntp::config': } ~>
+  class { 'openntp::service': }
 
-  if $ensure != absent {
-    service { $service:
-      ensure  => $manage_service_ensure,
-      enable  => $manage_service_enable,
-      require => Package[$package],
-    }
-  }
 }
