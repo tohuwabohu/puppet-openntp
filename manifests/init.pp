@@ -17,6 +17,9 @@
 # [*server*]
 #   An array of time servers to be used.
 #
+# [*config_file*]
+#   Set the path of the configuration file.
+#
 # [*template*]
 #   The ntpd.conf template.
 #
@@ -34,7 +37,7 @@ class openntp (
   $listen       = params_lookup('listen'),
   $server       = params_lookup('server'),
   $package_name = params_lookup('package_name'),
-  $config_name  = params_lookup('config_name'),
+  $config_file  = params_lookup('config_file'),
   $template     = params_lookup('template'),
   $service_name = params_lookup('service_name')
 ) inherits openntp::params {
@@ -43,7 +46,7 @@ class openntp (
   validate_bool($enable)
   validate_array($server)
   validate_string($package_name)
-  validate_string($config_name)
+  validate_absolute_path($config_file)
   validate_string($template)
   validate_string($service_name)
 

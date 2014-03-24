@@ -20,7 +20,7 @@ class openntp::params {
   $package_name = $::operatingsystem ? {
     default => 'openntpd'
   }
-  $config_name = $::operatingsystem ? {
+  $config_file = $::operatingsystem ? {
     default => '/etc/openntpd/ntpd.conf'
   }
   $template = undef
