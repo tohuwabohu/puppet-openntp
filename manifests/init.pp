@@ -8,20 +8,27 @@
 #   What state the package should be in. Passed through to package resource.
 #
 # [*enable*]
-#   Set to 'false' to disable service(s) managed by module
+#   Set to 'false' to disable service(s) managed by module.
 #
 # [*listen*]
-#   Addresses to listen on (ntpd does not listen by default)
+#   Addresses to listen on (ntpd does not listen by default).
 #   Examples: nil, *, 127.0.0.1, ::1
 #
 # [*server*]
 #   An array of time servers to be used.
+#   Example: ['ntp.example.org']
+#
+# [*package_name*]
+#   Set the name of the package to be installed.
 #
 # [*config_file*]
 #   Set the path of the configuration file.
 #
 # [*template*]
-#   The ntpd.conf template.
+#   Set the name of the ntpd.conf template.
+#
+# [*service_name*]
+#   Set the name of the openntpd service.
 #
 # == Author
 #
