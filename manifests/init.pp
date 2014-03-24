@@ -59,7 +59,7 @@ class openntp (
     default => true,
   }
 
-  package { $package: ensure => $ensure }
+  class { 'openntp::install': }
 
   if $ensure != absent {
     if empty($template) {
