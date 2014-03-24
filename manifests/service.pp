@@ -16,7 +16,6 @@ class openntp::service inherits openntp {
     service { $openntp::service:
       ensure  => $openntp::manage_service_ensure,
       enable  => $openntp::manage_service_enable,
-      require => Package[$openntp::package],
     }
   }
 

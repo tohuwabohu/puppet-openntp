@@ -33,15 +33,16 @@ class openntp (
   $disable = params_lookup('disable'),
   $listen = params_lookup('listen'),
   $server = params_lookup('server'),
-  $package = params_lookup('package'),
+  $package_name = params_lookup('package_name'),
   $config = params_lookup('config'),
   $template = params_lookup('template'),
   $service = params_lookup('service')
 ) inherits openntp::params {
 
+  validate_string($ensure)
   $bool_disable = any2bool($disable)
   validate_array($server)
-  validate_string($package)
+  validate_string($package_name)
   validate_string($config)
   validate_string($template)
   validate_string($service)

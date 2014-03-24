@@ -12,7 +12,7 @@
 #
 class openntp::install inherits openntp {
 
-  package { $openntp::package:
+  package { $openntp::package_name:
     ensure => $openntp::ensure,
   }
 
