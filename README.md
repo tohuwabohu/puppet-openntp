@@ -2,7 +2,7 @@
 
 ##Overview
 
-his module installs and manages OpenNTPD.
+This module installs and manages OpenNTPD.
 
 ##Usage
 
