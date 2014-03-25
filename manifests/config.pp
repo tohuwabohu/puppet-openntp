@@ -28,7 +28,7 @@ class openntp::config inherits openntp {
         group   => 'root',
         mode    => '0644',
         force   => true,
-        warn    => '# This file is managed by Puppet\n#\n',
+        warn    => '# This file is managed by Puppet',
       }
 
       concat::fragment { 'openntp_listen':
