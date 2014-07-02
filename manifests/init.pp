@@ -39,14 +39,14 @@
 # Copyright 2014 Martin Meinhold, unless otherwise noted.
 #
 class openntp (
-  $ensure       = params_lookup('ensure'),
-  $enable       = params_lookup('enable'),
-  $listen       = params_lookup('listen'),
-  $server       = params_lookup('server'),
-  $package_name = params_lookup('package_name'),
-  $config_file  = params_lookup('config_file'),
-  $template     = params_lookup('template'),
-  $service_name = params_lookup('service_name')
+  $ensure       = $openntp::params::ensure,
+  $enable       = $openntp::params::enable,
+  $listen       = $openntp::params::listen,
+  $server       = $openntp::params::server,
+  $package_name = $openntp::params::package_name,
+  $config_file  = $openntp::params::config_file,
+  $template     = $openntp::params::template,
+  $service_name = $openntp::params::service_name
 ) inherits openntp::params {
 
   validate_string($ensure)

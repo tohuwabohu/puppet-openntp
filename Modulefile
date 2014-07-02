@@ -10,4 +10,3 @@ description 'This module installs and manages OpenNTPD.'
 
 dependency 'puppetlabs/concat', '1.x'
 dependency 'puppetlabs/stdlib', '4.x'
-dependency 'example42/puppi', '2.x'
