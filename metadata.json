@@ -1,0 +1,27 @@
+{
+    "name": "tohuwabohu-openntp",
+    "version": "1.0.0",
+    "author": "Martin Meinhold",
+    "license": "Apache License, Version 2.0",
+    "summary": "Puppet module for OpenNTPD",
+    "source": "https://github.com/tohuwabohu/puppet-openntp.git",
+    "project_page": "https://github.com/tohuwabohu/puppet-openntp",
+    "issues_url": "https://github.com/tohuwabohu/puppet-openntp/issues",
+    "types": [ "openntp", "ntp", "time" ],
+    "operatingsystem_support": [
+        {
+            "operatingsystem": "Debian",
+            "operatingsystemrelease": [ "6.0" ]
+        }
+    ],
+    "dependencies": [
+        {
+            "name": "puppetlabs/concat",
+            "version_requirement": "1.x"
+        },
+        {
+            "name": "puppetlabs/stdlib",
+            "version_requirement": "4.x"
+        }
+    ]
+}
