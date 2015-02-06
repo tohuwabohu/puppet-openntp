@@ -21,14 +21,14 @@
 # [*package_name*]
 #   Set the name of the package to be installed.
 #
+# [*service_name*]
+#   Set the name of the openntpd service.
+#
 # [*config_file*]
 #   Set the path of the configuration file.
 #
 # [*template*]
 #   Set the name of the ntpd.conf template.
-#
-# [*service_name*]
-#   Set the name of the openntpd service.
 #
 # == Author
 #
@@ -39,15 +39,15 @@
 # Copyright 2014 Martin Meinhold, unless otherwise noted.
 #
 class openntp (
-  $ensure       = $openntp::params::ensure,
-  $enable       = $openntp::params::enable,
-  $listen       = $openntp::params::listen,
-  $server       = $openntp::params::server,
-  $package_name = $openntp::params::package_name,
-  $config_file  = $openntp::params::config_file,
-  $template     = $openntp::params::template,
-  $service_name = $openntp::params::service_name
-) inherits openntp::params {
+  $ensure,
+  $enable,
+  $listen = undef,
+  $server,
+  $package_name,
+  $service_name,
+  $config_file,
+  $template = undef,
+) {
 
   validate_string($ensure)
   validate_bool($enable)
