@@ -64,6 +64,12 @@ describe 'openntp' do
     it { should contain_file('/etc/openntpd/ntpd.conf') }
   end
 
+  describe 'should accept options_hash' do
+    let(:params) { {:options_hash => {'a' => 1, 'b' => 2}} }
+
+    it { should contain_file(config_file) }
+  end
+
   describe 'disable service' do
     let(:params) { {:enable => false} }
 

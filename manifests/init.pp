@@ -30,6 +30,9 @@
 # [*template*]
 #   Set to the name of an alternative template file (if you don't want to use the default one).
 #
+# [*options_hash*]
+#   Used in combination with a custom `template` to provide custom data.
+#
 # == Author
 #
 # Martin Meinhold <Martin.Meinhold@gmx.de>
@@ -41,12 +44,13 @@
 class openntp (
   $ensure,
   $enable,
-  $listen = undef,
+  $listen       = undef,
   $server,
   $package_name,
   $service_name,
   $config_file,
-  $template = undef,
+  $template     = undef,
+  $options_hash = { },
 ) {
 
   validate_string($ensure)
@@ -55,6 +59,7 @@ class openntp (
   validate_string($package_name)
   validate_absolute_path($config_file)
   validate_string($service_name)
+  validate_hash($options_hash)
 
   class { 'openntp::install': } ->
   class { 'openntp::config': } ~>
