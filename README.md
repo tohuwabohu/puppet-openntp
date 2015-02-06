@@ -21,6 +21,7 @@ class { 'openntp': server => ['ntp.example.org'] }
 The module has been tested on the following operating systems. Testing and patches for other platforms are welcome.
 
 * Debian Linux 6.0 (Squeeze)
+* Debian Linux 7.0 (Wheezy)
 
 [![Build Status](https://travis-ci.org/tohuwabohu/puppet-openntp.png?branch=master)](https://travis-ci.org/tohuwabohu/puppet-openntp)
 
