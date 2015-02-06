@@ -28,7 +28,7 @@
 #   Set the path of the configuration file.
 #
 # [*template*]
-#   Set the name of the ntpd.conf template.
+#   Set to the name of an alternative template file (if you don't want to use the default one).
 #
 # == Author
 #
