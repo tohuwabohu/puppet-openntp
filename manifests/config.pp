@@ -18,7 +18,7 @@ class openntp::config inherits openntp {
   }
 
   $real_template = empty($openntp::template) ? {
-    true    => 'openntp/server.erb',
+    true    => 'openntp/ntpd.conf.erb',
     default => $openntp::template,
   }
 

@@ -59,7 +59,7 @@ describe 'openntp' do
   end
 
   describe 'with custom template file' do
-    let(:params) { {:template => 'openntp/server.erb'} }
+    let(:params) { {:template => 'openntp/ntpd.conf.erb'} }
 
     it { should contain_file('/etc/openntpd/ntpd.conf') }
   end
