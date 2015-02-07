@@ -11,4 +11,5 @@ openntp::server:
 
 openntp::package_name: openntpd
 openntp::service_name: openntpd
+openntp::service_restart: /usr/local/sbin/restart-openntpd
 openntp::config_file: /etc/openntpd/ntpd.conf

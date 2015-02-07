@@ -24,6 +24,10 @@
 # [*service_name*]
 #   Set the name of the openntpd service.
 #
+# [*service_restart*]
+#   Set the command used to restart the service. If set to `undef`, the Puppet default will be used. Otherwise the
+#   referenced command is used. Used to provide a custom restart command that ensures the service is properly restarted.
+#
 # [*config_file*]
 #   Set the path of the configuration file.
 #
@@ -44,13 +48,14 @@
 class openntp (
   $ensure,
   $enable,
-  $listen       = undef,
+  $listen          = undef,
   $server,
   $package_name,
   $service_name,
+  $service_restart = undef,
   $config_file,
-  $template     = undef,
-  $options_hash = { },
+  $template        = undef,
+  $options_hash    = { },
 ) {
 
   validate_string($ensure)
