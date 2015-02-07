@@ -39,7 +39,7 @@ class openntp::service inherits openntp {
       owner   => 'root',
       group   => 'root',
       mode    => '0555',
-      before  => Service[$service_name]
+      before  => Service[$openntp::service_name]
     }
   }
 
