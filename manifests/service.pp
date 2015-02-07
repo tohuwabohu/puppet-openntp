@@ -23,8 +23,8 @@ class openntp::service inherits openntp {
 
   if $openntp::ensure != absent {
     service { $openntp::service_name:
-      ensure  => $ensure_service,
-      enable  => $enable_service,
+      ensure => $ensure_service,
+      enable => $enable_service,
     }
   }
 
