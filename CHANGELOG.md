@@ -1,3 +1,8 @@
+##2015-02-08 - Release 2.0.1
+###Summary
+
+* Ensure generated configuration file is consistent with previous version
+
 ##2015-02-07 - Release 2.0.0
 ###Summary
 
