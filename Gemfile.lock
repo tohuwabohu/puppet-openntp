@@ -125,7 +125,7 @@ GEM
       rake
       rspec
       rspec-puppet
-    rake (10.1.1)
+    rake (10.4.2)
     rbvmomi (1.8.1)
       builder
       nokogiri (>= 1.4.1)
@@ -175,7 +175,7 @@ DEPENDENCIES
   puppet-lint (~> 1.1.0)
   puppet-syntax (~> 2.0.0)
   puppetlabs_spec_helper (~> 0.8.2)
-  rake (~> 10.1.1)
+  rake (~> 10.4.2)
   rspec (~> 2.14.1)
   rspec-puppet (~> 1.0.1)
   serverspec (~> 1.7.0)
