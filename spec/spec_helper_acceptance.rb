@@ -2,12 +2,7 @@ require 'beaker-rspec/spec_helper'
 require 'beaker-rspec/helpers/serverspec'
 
 unless ENV['BEAKER_PROVISION'] == 'no'
-  hosts.each do |host|
-    if host['platform'] =~ /debian-6-amd64/
-      on host, 'echo "deb http://ftp.de.debian.org/debian-backports/ squeeze-backports main" > /etc/apt/sources.list.d/backports.list'
-      install_puppet # workaround for broken vagrant images, see yml file
-    end
-  end
+  install_puppet
 end
 
 RSpec.configure do |c|
