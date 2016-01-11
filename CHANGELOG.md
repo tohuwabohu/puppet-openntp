@@ -1,3 +1,15 @@
+##2016-01-11 - Release 2.0.2
+###Summary
+
+Apparmor reload will only happen if parser exists ([#1](https://github.com/tohuwabohu/puppet-openntp/pull/1) and
+[#2](https://github.com/tohuwabohu/puppet-openntp/pull/2)).
+
+Furthermore, the test infrastructure has been updated
+
+* Update all gems to the latest version
+* Update all Beaker acceptance tests to use Docker instead of Virtualbox
+* Remove Ruby 1.8.7 from test matrix
+
 ##2015-02-08 - Release 2.0.1
 ###Summary
 
