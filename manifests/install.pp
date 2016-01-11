@@ -29,7 +29,7 @@ class openntp::install inherits openntp {
       command     => 'service apparmor reload',
       path        => ['/usr/local/sbin', '/usr/local/bin', '/usr/sbin', '/usr/bin', '/sbin', '/bin'],
       refreshonly => true,
-      onlyif      => '/usr/bin/test -d /sbin/apparmor_parser',
+      onlyif      => '/usr/bin/test -x /sbin/apparmor_parser',
       subscribe   => Package['ntp'],
       before      => Package[$openntp::package_name],
     }
