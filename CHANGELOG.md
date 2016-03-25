@@ -1,3 +1,20 @@
+##2016-03-25 - Release 2.1.0
+###Summary
+
+This release improves compatibility with Puppet 4.
+
+####Improvements
+
+Replace [ripienaar/module_data](https://forge.puppetlabs.com/ripienaar/module_data) with `params.pp`; the module is
+unlikly to work with Puppet 4 (see [Native Puppet 4 Data in Modules](https://www.devco.net/archives/2016/01/08/native-puppet-4-data-in-modules.php))
+and in order to not break Puppet 3 support it is easier to just stick with a simple `params.pp` for the moment.
+
+Furthermore, the test infrastructure has been overhauled:
+
+* Bump gem dependencies to the latest version
+* Bump Puppet module dependencies to the latest version
+* Update travis test matrix and add support for Puppet 4
+
 ##2016-01-11 - Release 2.0.2
 ###Summary
 

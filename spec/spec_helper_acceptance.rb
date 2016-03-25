@@ -17,7 +17,6 @@ RSpec.configure do |c|
       copy_module_to(host, :source => proj_root, :module_name => 'openntp', :ignore_list => ignore_list)
 
       # Install dependencies
-      on host, puppet('module', 'install', 'ripienaar-module_data', '--version 0.0.3')
       on host, puppet('module', 'install', 'puppetlabs-stdlib', '--version 4.11.0')
     end
   end
