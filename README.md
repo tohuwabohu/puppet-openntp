@@ -46,5 +46,5 @@ bundle install --path vendor
 bundle exec rake spec
 bundle exec rake beaker
 ```
-(note: see [Beaker - Supported ENV variables](https://github.com/puppetlabs/beaker/blob/master/docs/How-to-Write-a-Beaker-Test-for-a-Module.md#supported-env-variables)
+(note: see [Beaker - Supported ENV variables](https://github.com/puppetlabs/beaker-rspec/blob/master/README.md)
 for a list of environment variables to control the default behaviour of Beaker)
