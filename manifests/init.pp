@@ -46,17 +46,17 @@
 # Copyright 2014 Martin Meinhold, unless otherwise noted.
 #
 class openntp (
-  $ensure,
-  $enable,
+  $ensure          = $openntp::params::ensure,
+  $enable          = $openntp::params::enable,
   $listen          = undef,
-  $server,
-  $package_name,
-  $service_name,
-  $service_restart = undef,
-  $config_file,
+  $server          = $openntp::params::server,
+  $package_name    = $openntp::params::package_name,
+  $service_name    = $openntp::params::service_name,
+  $service_restart = $openntp::params::service_restart,
+  $config_file     = $openntp::params::config_file,
   $template        = undef,
   $options_hash    = { },
-) {
+) inherits openntp::params {
 
   validate_string($ensure)
   validate_bool($enable)
