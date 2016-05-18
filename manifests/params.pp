@@ -16,16 +16,16 @@ class openntp::params {
   $server = suffix(range('0', '3'), '.debian.pool.ntp.org')
   $package_name = 'openntpd'
   $service_name = 'openntpd'
-  $service_restart = $osfamily ? {
+  $service_restart = $::osfamily ? {
     'Debian' => '/usr/local/sbin/restart-openntpd',
     default =>  undef
   }
-  $config_file = $osfamily ? {
+  $config_file = $::osfamily ? {
     'FreeBSD' => '/usr/local/etc/ntpd.conf',
     default   => '/etc/openntpd/ntpd.conf'
   }
   $rootuser = 'root'
-  $rootgroup = $osfamily ? {
+  $rootgroup = $::osfamily ? {
     'FreeBSD' => 'wheel',
     default   => 'root'
   }
