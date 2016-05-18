@@ -2,5 +2,9 @@
 /spec/fixtures/manifests
 /spec/fixtures/modules
 
+*.swp
+*.swo
+
 # https://tickets.puppetlabs.com/browse/PUP-3444
 vendor/**
+.bundle/

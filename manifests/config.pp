@@ -25,8 +25,8 @@ class openntp::config inherits openntp {
   file { $openntp::config_file:
     ensure  => $ensure_config,
     content => template($real_template),
-    owner   => 'root',
-    group   => 'root',
+    owner   => $openntp::rootuser,
+    group   => $openntp::rootgroup,
     mode    => '0644',
   }
 }
