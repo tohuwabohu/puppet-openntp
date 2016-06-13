@@ -1,5 +1,8 @@
 #openntp
 
+[![Puppet Forge](https://img.shields.io/puppetforge/v/tohuwabohu/openntp.svg)](https://forge.puppetlabs.com/tohuwabohu/openntp)
+[![Build Status](https://travis-ci.org/tohuwabohu/puppet-openntp.png?branch=master)](https://travis-ci.org/tohuwabohu/puppet-openntp)
+
 ##Overview
 
 This module installs and manages OpenNTPD.
@@ -24,8 +27,6 @@ The module has been tested on the following operating systems. Testing and patch
 * Debian 8.0 (Jessie)
 * Ubuntu 12.04 (Precise Pangolin)
 * Ubuntu 14.04 (Trusty Tahr)
-
-[![Build Status](https://travis-ci.org/tohuwabohu/puppet-openntp.png?branch=master)](https://travis-ci.org/tohuwabohu/puppet-openntp)
 
 ##Contributing
 
