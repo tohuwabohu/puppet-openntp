@@ -8,15 +8,46 @@ describe 'openntp' do
   describe 'by default' do
     let(:params) { { } }
 
-    it { should contain_package('openntpd').with_ensure('installed') }
-    it { should contain_service('openntpd').with_ensure('running').with_enable(true) }
-    it { should contain_file(config_file) }
-    it { should contain_file(config_file).with_ensure('file') }
-    it { should contain_file(config_file).without_content(/listen on/) }
-    it { should contain_file(config_file).with_content(/server 0.debian.pool.ntp.org/) }
-    it { should contain_file(config_file).with_content(/server 1.debian.pool.ntp.org/) }
-    it { should contain_file(config_file).with_content(/server 2.debian.pool.ntp.org/) }
-    it { should contain_file(config_file).with_content(/server 3.debian.pool.ntp.org/) }
+    shared_examples 'a default setup' do
+      it { should contain_package('openntpd').with_ensure('installed') }
+      it { should contain_service('openntpd').with_ensure('running').with_enable(true) }
+      it { should contain_file(config_file) }
+      it { should contain_file(config_file).with_ensure('file') }
+      it { should contain_file(config_file).with_owner('root') }
+      it { should contain_file(config_file).without_content(/listen on/) }
+      it { should contain_file(config_file).with_content(/server 0.debian.pool.ntp.org/) }
+      it { should contain_file(config_file).with_content(/server 1.debian.pool.ntp.org/) }
+      it { should contain_file(config_file).with_content(/server 2.debian.pool.ntp.org/) }
+      it { should contain_file(config_file).with_content(/server 3.debian.pool.ntp.org/) }
+    end
+
+    it_behaves_like 'a default setup'
+    it { should_not contain_file('/usr/local/sbin/restart-openntpd') }
+
+    describe 'on Debian' do
+      let(:facts) { {
+        :concat_basedir => '/path/to/dir',  
+        :osfamily       => 'Debian'
+      } }
+
+      it_behaves_like 'a default setup'
+
+      it { should contain_file(config_file).with_group('root') }
+      it { should contain_file('/usr/local/sbin/restart-openntpd') }
+    end
+
+    describe 'on FreeBSD' do
+      let(:facts) { {
+        :concat_basedir => '/path/to/dir',  
+        :osfamily       => 'FreeBSD'
+      } }
+      let(:config_file) { '/usr/local/etc/ntpd.conf' }
+
+      it_behaves_like 'a default setup'
+
+      it { should contain_file(config_file).with_group('wheel') }
+      it { should_not contain_file('/usr/local/sbin/restart-openntpd') }
+    end
   end
 
   describe 'with custom version' do
