@@ -1,3 +1,8 @@
+##2016-06-13 - Release 2.2.0
+###Summary
+
+Add support for FreeBSD ([#6](https://github.com/tohuwabohu/puppet-openntp/pull/6).
+
 ##2016-03-25 - Release 2.1.0
 ###Summary
 
