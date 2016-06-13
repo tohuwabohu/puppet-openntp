@@ -27,6 +27,7 @@ The module has been tested on the following operating systems. Testing and patch
 * Debian 8.0 (Jessie)
 * Ubuntu 12.04 (Precise Pangolin)
 * Ubuntu 14.04 (Trusty Tahr)
+* FreeBSD 10
 
 ##Contributing
 
