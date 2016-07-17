@@ -8,3 +8,4 @@
 # https://tickets.puppetlabs.com/browse/PUP-3444
 vendor/**
 .bundle/
+Gemfile.lock

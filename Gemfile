@@ -1,6 +1,7 @@
 source ENV['GEM_SOURCE'] || 'https://rubygems.org'
 
 group :development, :test do
+  gem 'metadata-json-lint', '~> 0.0.11'
   gem 'rake', '~> 11.1.1'
   gem 'rspec', '~> 3.4.0'
   gem 'rspec-puppet', '~> 2.4.0'
@@ -8,6 +9,8 @@ group :development, :test do
   gem 'puppet-blacksmith', '~> 3.3.1'
   gem 'puppet-lint', '~> 1.1.0'
   gem 'puppet-syntax', '~> 2.1.0'
+
+  gem 'rest-client', '~> 1.8.0'  # Ruby 1.9.2 compatible
 end
 
 group :system_tests do

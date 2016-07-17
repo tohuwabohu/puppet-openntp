@@ -7,7 +7,7 @@
   "source": "https://github.com/tohuwabohu/puppet-openntp.git",
   "project_page": "https://github.com/tohuwabohu/puppet-openntp",
   "issues_url": "https://github.com/tohuwabohu/puppet-openntp/issues",
-  "types": [
+  "tags": [
     "openntp",
     "ntp",
     "time"
