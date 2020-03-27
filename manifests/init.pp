@@ -25,8 +25,7 @@
 #   Set the name of the openntpd service.
 #
 # [*service_restart*]
-#   Set the command used to restart the service. If set to `undef`, the Puppet default will be used. Otherwise the
-#   referenced command is used. Used to provide a custom restart command that ensures the service is properly restarted.
+#   Deprecated, will be removed in the next major release.
 #
 # [*config_file*]
 #   Set the path of the configuration file.
@@ -52,7 +51,7 @@ class openntp (
   $server          = $openntp::params::server,
   $package_name    = $openntp::params::package_name,
   $service_name    = $openntp::params::service_name,
-  $service_restart = $openntp::params::service_restart,
+  $service_restart = undef,
   $config_file     = $openntp::params::config_file,
   $template        = undef,
   $options_hash    = { },

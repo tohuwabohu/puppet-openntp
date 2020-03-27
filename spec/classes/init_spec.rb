@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe 'openntp' do
   let(:title) { 'openntp' }
-  let(:facts) { {:concat_basedir => '/path/to/dir'} }
   let(:config_file) { '/etc/openntpd/ntpd.conf' }
 
   describe 'by default' do
@@ -22,31 +21,26 @@ describe 'openntp' do
     end
 
     it_behaves_like 'a default setup'
-    it { should_not contain_file('/usr/local/sbin/restart-openntpd') }
 
     describe 'on Debian' do
       let(:facts) { {
-        :concat_basedir => '/path/to/dir',  
-        :osfamily       => 'Debian'
+        :os => { :family => 'Debian' },
       } }
 
       it_behaves_like 'a default setup'
 
       it { should contain_file(config_file).with_group('root') }
-      it { should contain_file('/usr/local/sbin/restart-openntpd') }
     end
 
     describe 'on FreeBSD' do
       let(:facts) { {
-        :concat_basedir => '/path/to/dir',  
-        :osfamily       => 'FreeBSD'
+        :os => { :family => 'FreeBSD' },
       } }
       let(:config_file) { '/usr/local/etc/ntpd.conf' }
 
       it_behaves_like 'a default setup'
 
       it { should contain_file(config_file).with_group('wheel') }
-      it { should_not contain_file('/usr/local/sbin/restart-openntpd') }
     end
   end
 
