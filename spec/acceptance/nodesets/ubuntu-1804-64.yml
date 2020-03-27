@@ -1,8 +1,8 @@
 HOSTS:
-  debian-10-64:
-    platform: debian-10-amd64
+  ubuntu-1804-x64:
+    platform: ubuntu-1804-x86_64
     hypervisor: docker
-    image: debian:10
+    image: ubuntu:18.04
     docker_preserve_image: true
 
 CONFIG:
