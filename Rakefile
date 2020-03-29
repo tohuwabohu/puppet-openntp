@@ -14,10 +14,6 @@ exclude_paths = [
 PuppetLint.configuration.fail_on_warnings = true
 PuppetLint.configuration.ignore_paths = exclude_paths
 PuppetSyntax.exclude_paths = exclude_paths
-Blacksmith::RakeTask.new do |t|
-  t.tag_message_pattern = "Version %s" # Signed tags must have a message
-  t.tag_sign = true # enable GPG signing
-end
 
 task :test => [
   :syntax,
