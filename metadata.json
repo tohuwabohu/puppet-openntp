@@ -1,7 +1,7 @@
 {
   "name": "tohuwabohu-openntp",
   "version": "3.0.0",
-  "author": "Martin Meinhold",
+  "author": "tohuwabohu",
   "license": "Apache-2.0",
   "summary": "Puppet module for OpenNTPD",
   "source": "https://github.com/tohuwabohu/puppet-openntp.git",
