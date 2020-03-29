@@ -5,15 +5,19 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## Next
+### Summary
+
+This release updates the development infra and test matrix to the most recent versions. It also drops support for the
+custom `service_restart` parameter as it should no longer be needed.  
 
 ### Changed
 
 - Update Ruby Gems
-- Update test matrix
+- Update test matrix: support Debian 9/10 and Ubuntu 16.04/18.04
 
 ### Removed 
 
-- `service_restart` parameter  
+- `service_restart` parameter
 
 ## 2016-06-13 - Release 2.3.0
 ###Summary
