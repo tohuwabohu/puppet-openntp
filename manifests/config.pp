@@ -13,8 +13,8 @@
 class openntp::config inherits openntp {
 
   $ensure_config = $openntp::ensure ? {
-    absent  => absent,
-    default => file,
+    'absent' => absent,
+    default  => file,
   }
 
   $real_template = empty($openntp::template) ? {

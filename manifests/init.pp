@@ -65,8 +65,8 @@ class openntp (
   validate_string($service_name)
   validate_hash($options_hash)
 
-  class { 'openntp::install': } ->
-  class { 'openntp::config': } ~>
-  class { 'openntp::service': }
+  class { 'openntp::install': }
+  -> class { 'openntp::config': }
+  ~> class { 'openntp::service': }
 
 }
