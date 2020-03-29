@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unrelease]
+
+### Changed
+
+- Replace deprecated `validate_` puppetlabs/stdlib functions with Puppet data types
+
+### Removed
+
+- Previously deprecated parameter `service_restart`
+
 ## [3.1.0](https://github.com/tohuwabohu/puppet-openntp/tree/v3.1.0) - 2020-03-29 
 ### Summary
 

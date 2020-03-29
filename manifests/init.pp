@@ -24,9 +24,6 @@
 # [*service_name*]
 #   Set the name of the openntpd service.
 #
-# [*service_restart*]
-#   Deprecated, will be removed in the next major release.
-#
 # [*config_file*]
 #   Set the path of the configuration file.
 #
@@ -45,25 +42,16 @@
 # Copyright 2014 Martin Meinhold, unless otherwise noted.
 #
 class openntp (
-  $ensure          = $openntp::params::ensure,
-  $enable          = $openntp::params::enable,
-  $listen          = undef,
-  $server          = $openntp::params::server,
-  $package_name    = $openntp::params::package_name,
-  $service_name    = $openntp::params::service_name,
-  $service_restart = undef,
-  $config_file     = $openntp::params::config_file,
-  $template        = undef,
-  $options_hash    = { },
+  String $ensure                    = $openntp::params::ensure,
+  Boolean $enable                   = $openntp::params::enable,
+  Optional[String] $listen          = undef,
+  Array $server                     = $openntp::params::server,
+  String $package_name              = $openntp::params::package_name,
+  String $service_name              = $openntp::params::service_name,
+  Stdlib::Absolutepath $config_file = $openntp::params::config_file,
+  Optional[String] $template        = undef,
+  Hash $options_hash                = { },
 ) inherits openntp::params {
-
-  validate_string($ensure)
-  validate_bool($enable)
-  validate_array($server)
-  validate_string($package_name)
-  validate_absolute_path($config_file)
-  validate_string($service_name)
-  validate_hash($options_hash)
 
   class { 'openntp::install': }
   -> class { 'openntp::config': }
