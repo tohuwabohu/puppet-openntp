@@ -7,8 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 2020-03-29 - Release 3.0.0
 ### Summary
 
-This release updates the development infra and test matrix to the most recent versions. It also drops support for the
-custom `service_restart` parameter as it should no longer be needed.  
+This release adds support for Puppet 5 and 6 and thus replaces `$::osfamily` with `$facts['os']['family']`.
+
+### Added
+
+- Support for Puppet 5 and 6
 
 ### Changed
 
@@ -17,7 +20,8 @@ custom `service_restart` parameter as it should no longer be needed.
 
 ### Removed 
 
-- `service_restart` parameter
+- Stopped officially supporting Puppet 4 and below
+- Removed redundant `service_restart` parameter
 
 ## 2016-06-13 - Release 2.3.0
 ###Summary
