@@ -14,6 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Removed
 
 - Previously deprecated parameter `service_restart`
+- Redundant work-around to purge ntpd and reload apparmor rules after that on Ubuntu 
 
 ## [3.1.0](https://github.com/tohuwabohu/puppet-openntp/tree/v3.1.0) - 2020-03-29 
 ### Summary
