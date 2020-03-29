@@ -1,23 +1,17 @@
-require 'beaker-rspec/spec_helper'
-require 'beaker-rspec/helpers/serverspec'
+require 'beaker-rspec'
+require 'beaker-puppet'
+require 'beaker/puppet_install_helper'
+require 'beaker/module_install_helper'
 
-unless ENV['BEAKER_PROVISION'] == 'no'
-  install_puppet
-end
+# collection: puppet - latest, puppet6 is the current version
+install_puppet_agent_on(hosts, {:puppet_collection => 'puppet' } )
+install_module_on(hosts)
+install_module_from_forge_on(hosts, 'puppetlabs-stdlib', '= 4.11.0')
 
 RSpec.configure do |c|
-  proj_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
-  ignore_list = %w(junit log spec tests vendor)
-
   c.formatter = :documentation
 
   c.before :suite do
-    hosts.each do |host|
-      # Install module
-      copy_module_to(host, :source => proj_root, :module_name => 'openntp', :ignore_list => ignore_list)
-
-      # Install dependencies
-      on host, puppet('module', 'install', 'puppetlabs-stdlib', '--version 4.11.0')
-    end
+    logger.info("Using Puppet version #{(on default, 'puppet --version').stdout.chomp}")
   end
 end

@@ -12,7 +12,7 @@
 #
 class openntp::install inherits openntp {
 
-  if $openntp::ensure != absent and $::lsbdistid == 'Ubuntu' {
+  if $openntp::ensure != absent and $facts['os']['family'] == 'Ubuntu' {
     # Installing openntpd will automatically remove the ntp package. But on Ubuntu, just removing the package will leave
     # the apparmor profile behind. This still active apparmor profile will then prevent the openntpd service from
     # accessing its own configuration file. The solution is to purge the package (to get rid of the apparmor profile)

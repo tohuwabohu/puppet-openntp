@@ -17,7 +17,8 @@ describe 'by default' do
     specify { should be_file }
   end
 
-  describe service('openntpd') do
+  # Detecting the current process status is broken due to:  Failed to connect to bus: No such file or directory
+  describe service('openntpd'), :unless => fact('os.name') == 'Ubuntu' && fact('os.release.full') == '16.04' do
     specify { should be_enabled }
     specify { should be_running }
   end
