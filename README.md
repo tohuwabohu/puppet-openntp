@@ -1,7 +1,9 @@
 # openntp
 
+[![License](https://img.shields.io/github/license/tohuwabohu/puppet-openntp.svg)](https://github.com/tohuwabohu/puppet-openntp/blob/master/LICENSE.txt)
+[![Build Status](https://travis-ci.org/tohuwabohu/puppet-openntp.svg?branch=master)](https://travis-ci.org/tohuwabohu/puppet-openntp)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/tohuwabohu/openntp.svg)](https://forge.puppetlabs.com/tohuwabohu/openntp)
-[![Build Status](https://travis-ci.org/tohuwabohu/puppet-openntp.png?branch=master)](https://travis-ci.org/tohuwabohu/puppet-openntp)
+[![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/tohuwabohu/openntp.svg)](https://forge.puppetlabs.com/tohuwabohu/openntp)
 
 ## Overview
 
