@@ -19,6 +19,12 @@ Blacksmith::RakeTask.new do |t|
   t.tag_sign = true # enable GPG signing
 end
 
+# work around for https://github.com/voxpupuli/puppet-blacksmith/issues/57
+Rake::Task["module:release"].clear
+namespace :module do
+  task :release => [:clean, :build, :tag, :push, :bump_commit]
+end
+
 task :test => [
   :syntax,
   :lint,
