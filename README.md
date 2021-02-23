@@ -1,7 +1,7 @@
 # openntp
 
 [![License](https://img.shields.io/github/license/tohuwabohu/puppet-openntp.svg)](https://github.com/tohuwabohu/puppet-openntp/blob/master/LICENSE.txt)
-[![Build Status](https://travis-ci.org/tohuwabohu/puppet-openntp.svg?branch=master)](https://travis-ci.org/tohuwabohu/puppet-openntp)
+[![build-and-test](https://github.com/tohuwabohu/puppet-openntp/actions/workflows/main.yml/badge.svg)](https://github.com/tohuwabohu/puppet-openntp/actions/workflows/main.yml)
 [![Puppet Forge](https://img.shields.io/puppetforge/v/tohuwabohu/openntp.svg)](https://forge.puppetlabs.com/tohuwabohu/openntp)
 [![Puppet Forge - downloads](https://img.shields.io/puppetforge/dt/tohuwabohu/openntp.svg)](https://forge.puppetlabs.com/tohuwabohu/openntp)
 
@@ -27,8 +27,8 @@ The module has been tested on the following operating systems. Testing and patch
 
 * Debian 9.0 (Stretch)
 * Debian 10.0 (Buster)
-* Ubuntu 16.04 (Xenial Xerus)
 * Ubuntu 18.04 (Bionic Beaver)
+* Ubuntu 20.04 (Focal Fossa)
 * FreeBSD 10
 
 ## Contributing
