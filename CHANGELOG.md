@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+                   
+## [unreleased]
+              
+###
+
+- Migrate from travis-ci.org to Github Actions due to pending shutdown :sob:
+- Replace Ubuntu 16.04 with Ubuntu 20.04 in acceptance test matrix
+
 
 ## [4.0.0](https://github.com/tohuwabohu/puppet-openntp/tree/v4.0.0) - 2020-03-29
 
