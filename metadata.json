@@ -1,6 +1,6 @@
 {
   "name": "tohuwabohu-openntp",
-  "version": "4.0.1",
+  "version": "4.1.0",
   "author": "tohuwabohu",
   "license": "Apache-2.0",
   "summary": "Puppet module for OpenNTPD",
@@ -37,7 +37,7 @@
   "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">= 5.0.0 < 7.0.0"
+      "version_requirement": ">= 5.0.0 < 8.0.0"
     }
   ],
   "dependencies": [
