@@ -1,8 +1,8 @@
 HOSTS:
-  ubuntu-1804-x64:
-    platform: ubuntu-1804-x86_64
+  ubuntu-2204-x64:
+    platform: ubuntu-2204-x86_64
     hypervisor: docker
-    image: ubuntu:18.04
+    image: ubuntu:22.04
     docker_preserve_image: true
 
 CONFIG:
